@@ -1,0 +1,23 @@
+[
+  {
+    "name": "mercury-market-data",
+    "label": "Market Intelligence",
+    "description": "Futures prices, AMT profiles, volatility metrics, yield curve spreads",
+    "url": "https://mcp.mercuryintelligence.net/markets/sse",
+    "transport": "sse"
+  },
+  {
+    "name": "mercury-darth-feedor",
+    "label": "Darth Feedor",
+    "description": "Data pipeline and feeder services",
+    "url": "https://mcp.mercuryintelligence.net/feeder/sse",
+    "transport": "sse"
+  },
+  {
+    "name": "mercury-econ-data",
+    "label": "Economic Calendar",
+    "description": "Macro events, economic releases, central bank decisions",
+    "url": "https://mcp.mercuryintelligence.net/econ/sse",
+    "transport": "sse"
+  }
+]
