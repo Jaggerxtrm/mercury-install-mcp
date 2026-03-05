@@ -9,7 +9,7 @@
   {
     "name": "mercury-darth-feedor",
     "label": "Darth Feedor",
-    "description": "Data pipeline and feeder services",
+    "description": "Financial articles, squawk context, and research — progressive retrieval, filtered views",
     "url": "https://mcp.mercuryintelligence.net/feeder/sse",
     "transport": "sse"
   },
