@@ -10,8 +10,8 @@
     "name": "mercury-darth-feedor",
     "label": "Darth Feedor",
     "description": "Financial articles, squawk context, and research — progressive retrieval, filtered views",
-    "url": "https://mcp.mercuryintelligence.net/feeder/sse",
-    "transport": "sse"
+    "url": "https://mcp.mercuryintelligence.net/feeder/mcp",
+    "transport": "http"
   },
   {
     "name": "mercury-econ-data",
