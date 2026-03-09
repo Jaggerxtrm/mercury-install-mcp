@@ -1,7 +1,7 @@
 ---
 title: Mercury MCP Installer
-version: 1.1.0
-updated: 2026-03-05
+version: 1.2.0
+updated: 2026-03-09
 scope: all
 category: ssot
 subcategory: cli
@@ -67,8 +67,8 @@ Hidden key input works cross-platform by intercepting the readline output stream
   "name": "mercury-market-data",
   "label": "Market Intelligence",
   "description": "Futures prices, AMT profiles, volatility metrics, yield curve spreads",
-  "url": "https://mcp.mercuryintelligence.net/markets/sse",
-  "transport": "sse"
+  "url": "https://mcp.mercuryintelligence.net/markets/mcp",
+  "transport": "streamable-http"
 }
 ```
 
@@ -76,9 +76,9 @@ Current servers:
 
 | name | label | URL path |
 |------|-------|----------|
-| `mercury-market-data` | Market Intelligence | `/markets/sse` |
-| `mercury-darth-feedor` | Darth Feedor — financial articles, squawk, research | `/feeder/sse` |
-| `mercury-econ-data` | Economic Calendar | `/econ/sse` |
+| `mercury-market-data` | Market Intelligence | `/markets/mcp` |
+| `mercury-darth-feedor` | Darth Feedor — financial articles, squawk, research | `/feeder/mcp` |
+| `mercury-econ-data` | Economic Calendar | `/econ/mcp` |
 
 All route through `mcp.mercuryintelligence.net` via Traefik (defined in `/mercury/infra/traefik/dynamic/routes.yml`).
 
@@ -92,7 +92,7 @@ All route through `mcp.mercuryintelligence.net` via Traefik (defined in `/mercur
    → If already installed: prompt to remove + reinstall or skip
 5. Prompt: Mercury API Key (hidden input)
 6. For each server:
-   claude mcp add -s <scope> --transport sse <name> <url> --header "X-API-Key: <key>"
+   claude mcp add -s <scope> --transport streamable-http <name> <url> --header "X-API-Key: <key>"
 7. Print per-server ✓/✗ and summary
 ```
 
@@ -115,8 +115,8 @@ To pin to a specific version: `npx github:Jaggerxtrm/mercury-install-mcp#v1.0.0`
      "name": "mercury-<service>",
      "label": "Human Label",
      "description": "One-line description",
-     "url": "https://mcp.mercuryintelligence.net/<path>/sse",
-     "transport": "sse"
+     "url": "https://mcp.mercuryintelligence.net/<path>/mcp",
+     "transport": "streamable-http"
    }
    ```
 3. Push to `main` — available immediately.
