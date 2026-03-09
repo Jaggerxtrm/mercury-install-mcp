@@ -85,7 +85,7 @@ claude  # open Claude Code in the repo
 If you want the skills available globally across all your Claude Code sessions, you can copy them to your user skills directory:
 
 ```bash
-cp -r skills/* ~/.claude/skills/
+cp -r .claude/skills/* ~/.claude/skills/
 ```
 
 ### `using-mercury` — Session Onboarding *(load at session start)*
