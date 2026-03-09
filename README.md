@@ -20,7 +20,7 @@ Works on Windows, macOS, and Linux.
 | `mercury-darth-feedor` | Darth Feedor | Financial articles, squawk context, and research — progressive retrieval, filtered views |
 | `mercury-econ-data` | Economic Calendar | Macro events, economic releases, central bank decisions |
 
-All servers connect to `mcp.mercuryintelligence.net` via the `streamable-http` transport and require a **Mercury API Key**.
+All servers connect to `mcp.mercuryintelligence.net` via the `http` transport and require a **Mercury API Key**.
 
 ## How it works
 
@@ -41,7 +41,7 @@ Edit `servers.json` — no code changes needed:
   "label": "Human Label",
   "description": "One-line description",
   "url": "https://mcp.mercuryintelligence.net/<path>/mcp",
-  "transport": "streamable-http"
+  "transport": "http"
 }
 ```
 

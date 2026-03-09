@@ -68,7 +68,7 @@ Hidden key input works cross-platform by intercepting the readline output stream
   "label": "Market Intelligence",
   "description": "Futures prices, AMT profiles, volatility metrics, yield curve spreads",
   "url": "https://mcp.mercuryintelligence.net/markets/mcp",
-  "transport": "streamable-http"
+  "transport": "http"
 }
 ```
 
@@ -92,7 +92,7 @@ All route through `mcp.mercuryintelligence.net` via Traefik (defined in `/mercur
    → If already installed: prompt to remove + reinstall or skip
 5. Prompt: Mercury API Key (hidden input)
 6. For each server:
-   claude mcp add -s <scope> --transport streamable-http <name> <url> --header "X-API-Key: <key>"
+   claude mcp add -s <scope> --transport http <name> <url> --header "X-API-Key: <key>"
 7. Print per-server ✓/✗ and summary
 ```
 
@@ -116,7 +116,7 @@ To pin to a specific version: `npx github:Jaggerxtrm/mercury-install-mcp#v1.0.0`
      "label": "Human Label",
      "description": "One-line description",
      "url": "https://mcp.mercuryintelligence.net/<path>/mcp",
-     "transport": "streamable-http"
+     "transport": "http"
    }
    ```
 3. Push to `main` — available immediately.

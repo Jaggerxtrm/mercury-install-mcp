@@ -4,20 +4,20 @@
     "label": "Market Intelligence",
     "description": "Futures prices, AMT profiles, volatility metrics, yield curve spreads",
     "url": "https://mcp.mercuryintelligence.net/markets/mcp",
-    "transport": "streamable-http"
+    "transport": "http"
   },
   {
     "name": "mercury-darth-feedor",
     "label": "Darth Feedor",
     "description": "Financial articles, squawk context, and research — progressive retrieval, filtered views",
     "url": "https://mcp.mercuryintelligence.net/feeder/mcp",
-    "transport": "streamable-http"
+    "transport": "http"
   },
   {
     "name": "mercury-econ-data",
     "label": "Economic Calendar",
     "description": "Macro events, economic releases, central bank decisions",
     "url": "https://mcp.mercuryintelligence.net/econ/mcp",
-    "transport": "streamable-http"
+    "transport": "http"
   }
 ]
