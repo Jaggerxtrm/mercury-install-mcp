@@ -19,6 +19,7 @@ Works on Windows, macOS, and Linux.
 | `mercury-market-data` | Market Intelligence | Futures prices, AMT profiles, volatility metrics, yield curve spreads |
 | `mercury-darth-feedor` | Darth Feedor | Financial articles, squawk context, and research — progressive retrieval, filtered views |
 | `mercury-econ-data` | Economic Calendar | Macro events, economic releases, central bank decisions |
+| `mercury-pubfinance` | Public Finance | Fed reference rates (SOFR, EFFR, OBFR), repo/RRP operations, Treasury auctions, TGA, primary dealers, fiscal flows |
 
 All servers connect to `mcp.mercuryintelligence.net` via the `http` transport and require a **Mercury API Key**.
 
@@ -90,7 +91,7 @@ cp -r .claude/skills/* ~/.claude/skills/
 
 ### `using-mercury` — Session Onboarding *(load at session start)*
 
-Maps all three MCPs and their tools, explains when to use each, and lists all available skills. Triggers automatically when Mercury MCP servers are connected or when the user asks what tools are available. Ends with a prompt asking the user where they want to start.
+Maps all four MCPs and their tools, explains when to use each, and lists all available skills. Triggers automatically when Mercury MCP servers are connected or when the user asks what tools are available. Ends with a prompt asking the user where they want to start.
 
 **Tools:** all Mercury MCPs · **Trigger:** session start, "what can you do", "what tools do you have"
 
@@ -98,7 +99,7 @@ Maps all three MCPs and their tools, explains when to use each, and lists all av
 
 ### `mercury-morning-brief` — Daily Setup
 
-Full pre-session workflow combining all three MCPs in sequence: today's high-importance economic events, a live market snapshot across all four complexes (equities, rates, commodities, FX), market texture/regime context, and the latest squawk headlines. Presents each layer concisely and asks where to focus before going deeper.
+Full pre-session workflow combining all four MCPs in sequence: today's high-importance economic events, a live market snapshot across all four complexes (equities, rates, commodities, FX), market texture/regime context, and the latest squawk headlines. Presents each layer concisely and asks where to focus before going deeper.
 
 **Tools:** market overview, market texture, economic events, squawks · **Trigger:** "morning brief", "pre-market", "daily setup", "what's happening today"
 
