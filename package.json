@@ -13,6 +13,14 @@
   "engines": {
     "node": ">=18"
   },
-  "keywords": ["mcp", "claude", "mercury", "installer"],
-  "license": "MIT"
+  "keywords": [
+    "mcp",
+    "claude",
+    "mercury",
+    "installer"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "index.js": "^0.0.3"
+  }
 }
