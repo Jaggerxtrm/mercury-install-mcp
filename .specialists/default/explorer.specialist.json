@@ -60,7 +60,7 @@
       ],
       "scripts": [
         {
-          "run": "python3 \"$CLAUDE_PROJECT_DIR/.claude/skills/scoping-service-skills/scripts/scope.py\" 2>/dev/null || true",
+          "run": "python3 \"$CLAUDE_PROJECT_DIR/.xtrm/skills/active/claude/scoping-service-skills/scripts/scope.py\" 2>/dev/null || true",
           "phase": "pre",
           "inject_output": true
         }
