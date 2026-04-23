@@ -75,11 +75,11 @@
       "paths": [
         ".xtrm/skills/active/pi/gitnexus-impact-analysis",
         ".xtrm/skills/active/pi/clean-code",
-        ".xtrm/skills/active/claude/scoping-service-skills"
+        ".claude/skills/scoping-service-skills"
       ],
       "scripts": [
         {
-          "run": "python3 \"$CLAUDE_PROJECT_DIR/.xtrm/skills/active/claude/scoping-service-skills/scripts/scope.py\" 2>/dev/null || true",
+          "run": "python3 \"$CLAUDE_PROJECT_DIR/.claude/skills/scoping-service-skills/scripts/scope.py\" 2>/dev/null || true",
           "phase": "pre",
           "inject_output": true
         },
