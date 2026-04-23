@@ -1,18 +1,57 @@
 # Mercury MCP Installer
 
-Interactive CLI installer for all [Mercury Platform](https://mercuryintelligence.net) MCP servers in Claude Code.
+Installs all [Mercury Platform](https://mercuryintelligence.net) MCP servers into Claude Desktop or Claude Code.
 
-## Usage
+---
+
+## Windows — Claude Desktop (no developer tools required)
+
+If you just want to use Mercury in Claude Desktop, you don't need Node.js or a terminal.
+
+**1. Download the extension**
+
+> [**Download mercury-platform.mcpb**](https://github.com/Jaggerxtrm/terminalbeta/raw/main/ext/mercury-platform/mercury-platform.mcpb)
+
+**2. Install**
+
+Double-click the downloaded file. Claude Desktop opens an install dialog.
+
+**3. Enter your Mercury API Key**
+
+Paste your key when prompted. It is stored securely in the Windows keychain — you only enter it once.
+
+**4. Done**
+
+All four Mercury servers are now available in Claude Desktop. No terminal, no configuration files.
+
+> **Requires:** [Claude Desktop](https://claude.ai/download) (latest version)
+
+---
+
+## Claude Code — All platforms
+
+If you use Claude Code (the CLI), run the interactive installer:
 
 ```bash
 npx github:Jaggerxtrm/terminalbeta
 ```
 
-No npm account or global install required. Requires **Node.js ≥ 18** and the **Claude Code CLI** (`claude`).
+On **Windows**, the installer will ask whether you want the Desktop Extension or Claude Code — choose whichever you need.
 
-Works on Windows, macOS, and Linux.
+**Requires:** [Node.js ≥ 18](https://nodejs.org) and the [Claude Code CLI](https://claude.ai/code)
 
-## What it installs
+**What it does:**
+
+1. Lists available servers with descriptions
+2. Prompts which to install (`1 3`, `all`, etc.)
+3. Prompts for install scope — **user** (`~/.claude.json`) or **project** (`.mcp.json`)
+4. Detects already-installed servers, offers to reinstall or skip
+5. Prompts for your Mercury API Key (hidden input)
+6. Runs `claude mcp add` for each selected server
+
+---
+
+## What gets installed
 
 | Server | Label | Description |
 |--------|-------|-------------|
@@ -21,16 +60,9 @@ Works on Windows, macOS, and Linux.
 | `mercury-econ-data` | Economic Calendar | Macro events, economic releases, central bank decisions |
 | `mercury-pubfinance` | Public Finance | Fed reference rates (SOFR, EFFR, OBFR), repo/RRP operations, Treasury auctions, TGA, primary dealers, fiscal flows |
 
-All servers connect to `mcp.mercuryintelligence.net` via the `http` transport and require a **Mercury API Key**.
+All servers connect to `mcp.mercuryintelligence.net` and require a **Mercury API Key**.
 
-## How it works
-
-1. Lists available servers with descriptions and URLs
-2. Prompts which to install (`1 3`, `all`, etc.)
-3. Prompts for scope — **user** (`~/.claude.json`) or **project** (`.mcp.json`)
-4. Detects already-installed servers and offers to reinstall or skip
-5. Prompts for your Mercury API Key (hidden input)
-6. Runs `claude mcp add` for each selected server with the correct transport and auth header
+---
 
 ## Adding a new server
 
@@ -46,24 +78,43 @@ Edit `servers.json` — no code changes needed:
 }
 ```
 
-Push to `main` — available immediately to all users via `npx github:`.
-
-## Pinning a version
+Then rebuild the Desktop Extension:
 
 ```bash
-npx github:Jaggerxtrm/mercury-install-mcp#v1.0.0
+cd ext/mercury-platform
+npm install
+npx @anthropic-ai/mcpb pack
 ```
+
+Push to `main` — the updated `.mcpb` and CLI installer are immediately available to all users.
+
+---
 
 ## Architecture
 
 ```
-mercury-install-mcp/
-├── index.js       # CLI entrypoint — pure Node built-ins (readline, child_process)
-├── servers.json   # MCP server registry — the only file to edit when adding a server
-└── package.json   # npm metadata and bin entry
+terminalbeta/
+├── index.js                              # CLI installer (Node built-ins only)
+├── servers.json                          # MCP server registry
+├── package.json
+└── ext/
+    └── mercury-platform/
+        ├── manifest.json                 # Extension metadata and user_config
+        ├── server/index.mjs              # Proxy: aggregates all 4 HTTP endpoints over stdio
+        ├── package.json
+        ├── node_modules/                 # Bundled MCP SDK — no install step for end users
+        └── mercury-platform.mcpb         # Built extension — commit this
 ```
 
-No external dependencies. Uses `readline` for interactive prompts (including hidden key input) and `child_process.spawnSync` to invoke `claude mcp add/get/remove`.
+The Desktop Extension bundles the MCP SDK and a small proxy server that connects to all four Mercury HTTP endpoints and exposes them as a single stdio MCP server. Claude Desktop ships Node.js, so no runtime install is needed.
+
+---
+
+## Pinning a version
+
+```bash
+npx github:Jaggerxtrm/terminalbeta#v1.0.0
+```
 
 ---
 
@@ -75,7 +126,7 @@ Once the MCPs are installed, a set of Claude Code skills is available to get the
 
 ### Installing the skills
 
-The skills live in the `skills/` directory of this repo. **Beta testing is designed to be done from within this repo** — clone it, open Claude Code here, and the skills are immediately available:
+The skills live in the `.claude/skills/` directory of this repo. **Beta testing is designed to be done from within this repo** — clone it, open Claude Code here, and the skills are immediately available:
 
 ```bash
 git clone https://github.com/Jaggerxtrm/terminalbeta.git
@@ -83,7 +134,7 @@ cd terminalbeta
 claude  # open Claude Code in the repo
 ```
 
-If you want the skills available globally across all your Claude Code sessions, you can copy them to your user skills directory:
+To make the skills available globally across all Claude Code sessions:
 
 ```bash
 cp -r .claude/skills/* ~/.claude/skills/

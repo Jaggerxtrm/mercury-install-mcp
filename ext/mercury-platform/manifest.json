@@ -1,0 +1,42 @@
+{
+  "manifest_version": "0.2",
+  "name": "mercury-platform",
+  "display_name": "Mercury Platform",
+  "version": "1.0.0",
+  "description": "Market intelligence, news feed, economic calendar, and public finance data for traders",
+  "long_description": "Connects Claude to all four Mercury Intelligence MCP servers — market data with AMT profiles and volatility metrics, Darth Feedor news and squawks, the economic calendar, and public finance data (SOFR, Treasury auctions, repo/RRP). All tools are aggregated into a single connection.",
+  "author": {
+    "name": "Mercury Intelligence",
+    "url": "https://mercuryintelligence.net"
+  },
+  "server": {
+    "type": "node",
+    "entry_point": "server/index.mjs",
+    "mcp_config": {
+      "command": "node",
+      "args": ["${__dirname}/server/index.mjs"],
+      "env": {
+        "MERCURY_API_KEY": "${user_config.api_key}"
+      }
+    }
+  },
+  "tools_generated": true,
+  "keywords": ["trading", "markets", "finance", "mercury", "mcp"],
+  "license": "MIT",
+  "compatibility": {
+    "claude_desktop": ">=1.0.0",
+    "platforms": ["darwin", "win32", "linux"],
+    "runtimes": {
+      "node": ">=18.0.0"
+    }
+  },
+  "user_config": {
+    "api_key": {
+      "type": "string",
+      "title": "Mercury API Key",
+      "description": "Your Mercury Intelligence API key",
+      "sensitive": true,
+      "required": true
+    }
+  }
+}

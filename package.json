@@ -1,17 +1,26 @@
 {
   "name": "mercury-install-mcp",
   "version": "1.0.0",
-  "description": "Interactive installer for Mercury Platform MCP servers (Claude Code)",
+  "description": "Installer for Mercury Platform MCP servers — Desktop Extension for Claude Desktop, CLI for Claude Code",
   "bin": {
     "mercury-install-mcp": "index.js"
   },
   "files": [
     "index.js",
-    "servers.json"
+    "servers.json",
+    "ext/"
   ],
   "engines": {
     "node": ">=18"
   },
-  "keywords": ["mcp", "claude", "mercury", "installer"],
-  "license": "MIT"
+  "keywords": [
+    "mcp",
+    "claude",
+    "mercury",
+    "installer"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "index.js": "^0.0.3"
+  }
 }

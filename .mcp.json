@@ -1,0 +1,32 @@
+{
+  "mcpServers": {
+    "mercury-market-data": {
+      "type": "http",
+      "url": "https://mcp.mercuryintelligence.net/markets/mcp",
+      "headers": {
+        "X-API-Key": "U4tiFqJZiTz5FtzS3muDGQon9Nft3tms5339WBHBs1s"
+      }
+    },
+    "mercury-darth-feedor": {
+      "type": "http",
+      "url": "https://mcp.mercuryintelligence.net/feeder/mcp",
+      "headers": {
+        "X-API-Key": "U4tiFqJZiTz5FtzS3muDGQon9Nft3tms5339WBHBs1s"
+      }
+    },
+    "mercury-econ-data": {
+      "type": "http",
+      "url": "https://mcp.mercuryintelligence.net/econ/mcp",
+      "headers": {
+        "X-API-Key": "U4tiFqJZiTz5FtzS3muDGQon9Nft3tms5339WBHBs1s"
+      }
+    },
+    "mercury-pubfinance": {
+      "type": "http",
+      "url": "https://mcp.mercuryintelligence.net/pubfinance/mcp",
+      "headers": {
+        "X-API-Key": "U4tiFqJZiTz5FtzS3muDGQon9Nft3tms5339WBHBs1s"
+      }
+    }
+  }
+}
