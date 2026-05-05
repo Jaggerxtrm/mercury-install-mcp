@@ -140,13 +140,21 @@ To make the skills available globally across all Claude Code sessions:
 cp -r .claude/skills/* ~/.claude/skills/
 ```
 
-### `using-mercury` — Session Onboarding *(load at session start)*
+### `using-mercury` — Session Onboarding + Workflow Hub *(load at session start)*
 
-Maps all four MCPs and their tools, explains when to use each, and lists all available skills. Triggers automatically when Mercury MCP servers are connected or when the user asks what tools are available. Ends with a prompt asking the user where they want to start.
+Maps all four MCPs and their tools, explains when to use each, and includes an internal workflow router for Morning Brief, Market Scan, Instrument Deep Dive, Rates/STIR, PubFinance, News/Newsletter Research, and cross-domain `run_analysis` work. This is the canonical skill to ship in minimal environments such as Claude Desktop.
+
+The packaged `using-mercury.skill` also includes reference files:
+
+- `references/advanced-workflows.md`
+- `references/newsletter-research-workflows.md`
+- `references/tool-selection-cheatsheet.md`
 
 **Tools:** all Mercury MCPs · **Trigger:** session start, "what can you do", "what tools do you have"
 
 ---
+
+> **Packaging note:** The specialized `mercury-*` skills below are useful Claude Code trigger shortcuts. They are not required for Claude Desktop if `using-mercury` is installed, because the same workflows are now available inside `using-mercury` and its references.
 
 ### `mercury-morning-brief` — Daily Setup
 

@@ -14,28 +14,19 @@ from pathlib import Path
 
 
 def find_registry() -> Path | None:
-    def candidates(root: Path):
-        # 1. User packs (canonical location managed by xt)
-        packs_dir = root / ".xtrm" / "skills" / "user" / "packs"
-        if packs_dir.is_dir():
-            for pack in sorted(packs_dir.iterdir()):
-                p = pack / "service-registry.json"
-                if p.exists():
-                    yield p
-        # 2. Active layer alias (legacy fallback)
-        yield root / ".claude" / "skills" / "service-registry.json"
-
+    # 1. CLAUDE_PROJECT_DIR env var (set by Claude Code hooks)
     project_dir = os.environ.get("CLAUDE_PROJECT_DIR")
     if project_dir:
-        for p in candidates(Path(project_dir)):
-            if p.exists():
-                return p
+        p = Path(project_dir) / ".claude" / "skills" / "service-registry.json"
+        if p.exists():
+            return p
 
+    # 2. Walk up from CWD until .git boundary
     cwd = Path.cwd()
     for parent in [cwd, *cwd.parents]:
-        for p in candidates(parent):
-            if p.exists():
-                return p
+        p = parent / ".claude" / "skills" / "service-registry.json"
+        if p.exists():
+            return p
         if (parent / ".git").exists():
             break
 
