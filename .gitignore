@@ -8,7 +8,9 @@ node_modules/
 
 # Dev tooling — not for users
 .beads/
-.claude/
+.claude/*
+!.claude/skills/
+!.claude/skills/**
 .gitnexus/
 .mcp.json
 .pi/
