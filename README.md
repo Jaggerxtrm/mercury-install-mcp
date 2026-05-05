@@ -14,7 +14,7 @@ If you just want to use Mercury in Claude Desktop, you don't need Node.js or a t
 
 **2. Install**
 
-Double-click the downloaded file. Claude Desktop opens an install dialog.
+In Claude Desktop, go to **Settings → Extensions** and drag the downloaded file into the extensions panel.
 
 **3. Enter your Mercury API Key**
 
