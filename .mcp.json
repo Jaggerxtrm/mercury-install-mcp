@@ -1,22 +1,32 @@
 {
   "mcpServers": {
-    "github-grep": {
+    "mercury-market-data": {
       "type": "http",
-      "url": "https://mcp.grep.app"
+      "url": "https://mcp.mercuryintelligence.net/markets/mcp",
+      "headers": {
+        "X-API-Key": "${MERCURY_API_KEY}"
+      }
     },
-    "deepwiki": {
+    "mercury-darth-feedor": {
       "type": "http",
-      "url": "https://mcp.deepwiki.com/mcp"
+      "url": "https://mcp.mercuryintelligence.net/feeder/mcp",
+      "headers": {
+        "X-API-Key": "${MERCURY_API_KEY}"
+      }
     },
-    "gitnexus": {
-      "type": "stdio",
-      "command": "npx",
-      "args": [
-        "-y",
-        "gitnexus",
-        "mcp"
-      ],
-      "env": {}
+    "mercury-econ-data": {
+      "type": "http",
+      "url": "https://mcp.mercuryintelligence.net/econ/mcp",
+      "headers": {
+        "X-API-Key": "${MERCURY_API_KEY}"
+      }
+    },
+    "mercury-pubfinance": {
+      "type": "http",
+      "url": "https://mcp.mercuryintelligence.net/pubfinance/mcp",
+      "headers": {
+        "X-API-Key": "${MERCURY_API_KEY}"
+      }
     }
   }
 }
