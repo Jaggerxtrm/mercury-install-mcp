@@ -75,7 +75,7 @@ Use the Claude Desktop extension when you want the simplest install path. The ex
 ### Steps
 
 1. Download `mercury-platform.mcpb` from the Mercury installer package.
-2. Drag the file into the Claude Desktop window.
+2. In Claude Desktop, go to **Settings → Extensions** and drag the file into the extensions panel.
 3. Claude Desktop opens the extension install dialog.
 4. Enter your Mercury API key when prompted.
 5. Confirm the install.
