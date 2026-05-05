@@ -1,0 +1,431 @@
+# Instincts generated from https://github.com/Jaggerxtrm/terminalbeta
+# Generated: 2026-05-05T17:32:43.046Z
+# Version: 2.0
+# NOTE: This file supplements (does not replace) any existing curated instincts.
+# High-confidence manually curated instincts should be preserved alongside these.
+
+---
+id: terminalbeta-commit-conventional
+trigger: "when writing a commit message"
+confidence: 0.85
+domain: git
+source: repo-analysis
+source_repo: https://github.com/Jaggerxtrm/terminalbeta
+---
+
+# Terminalbeta Commit Conventional
+
+## Action
+
+Use conventional commit format with prefixes: fix, chore, feat
+
+## Evidence
+
+- 7 commits analyzed
+- Detected conventional commit pattern
+- Examples: chore: exclude dev-tool dot dirs from git, fix(docs): drag mcpb into Claude Desktop, not double-click
+
+---
+id: terminalbeta-commit-length
+trigger: "when writing a commit message"
+confidence: 0.6
+domain: git
+source: repo-analysis
+source_repo: https://github.com/Jaggerxtrm/terminalbeta
+---
+
+# Terminalbeta Commit Length
+
+## Action
+
+Write moderate-length commit messages (~55 characters)
+
+## Evidence
+
+- Average commit message length: 55 chars
+- Based on 7 commits
+
+---
+id: terminalbeta-naming-files
+trigger: "when creating a new file"
+confidence: 0.8
+domain: code-style
+source: repo-analysis
+source_repo: https://github.com/Jaggerxtrm/terminalbeta
+---
+
+# Terminalbeta Naming Files
+
+## Action
+
+Use camelCase naming convention
+
+## Evidence
+
+- Analyzed file naming patterns in repository
+- Dominant pattern: camelCase
+
+---
+id: terminalbeta-import-relative
+trigger: "when importing modules"
+confidence: 0.75
+domain: code-style
+source: repo-analysis
+source_repo: https://github.com/Jaggerxtrm/terminalbeta
+---
+
+# Terminalbeta Import Relative
+
+## Action
+
+Use relative imports for project files
+
+## Evidence
+
+- Import analysis shows relative import pattern
+- Example: import { x } from '../lib/x'
+
+---
+id: terminalbeta-export-style
+trigger: "when exporting from a module"
+confidence: 0.7
+domain: code-style
+source: repo-analysis
+source_repo: https://github.com/Jaggerxtrm/terminalbeta
+---
+
+# Terminalbeta Export Style
+
+## Action
+
+Prefer named exports
+
+## Evidence
+
+- Export pattern analysis
+- Dominant style: named
+
+---
+id: terminalbeta-test-separate
+trigger: "when writing tests"
+confidence: 0.8
+domain: testing
+source: repo-analysis
+source_repo: https://github.com/Jaggerxtrm/terminalbeta
+---
+
+# Terminalbeta Test Separate
+
+## Action
+
+Place tests in the tests/ or __tests__/ directory, mirroring src structure
+
+## Evidence
+
+- Separate test directory pattern detected
+- Tests live in dedicated test folders
+
+---
+id: terminalbeta-workflow-update-user-documentation
+trigger: "when doing update user documentation"
+confidence: 0.6
+domain: workflow
+source: repo-analysis
+source_repo: https://github.com/Jaggerxtrm/terminalbeta
+---
+
+# Terminalbeta Workflow Update User Documentation
+
+## Action
+
+Follow the update-user-documentation workflow:
+1. Edit documentation file(s) (e.g., quickstart.md, README.md) to update or clarify instructions.
+2. Commit the changes with a message referencing the specific clarification or fix.
+
+## Evidence
+
+- Workflow detected from commit patterns
+- Frequency: ~2x per month
+- Files: docs/quickstart.md, README.md
+
+---
+id: terminalbeta-workflow-add-or-update-skill
+trigger: "when doing add or update skill"
+confidence: 0.6
+domain: workflow
+source: repo-analysis
+source_repo: https://github.com/Jaggerxtrm/terminalbeta
+---
+
+# Terminalbeta Workflow Add Or Update Skill
+
+## Action
+
+Follow the add-or-update-skill workflow:
+1. Create or update SKILL.md and reference files in the appropriate skills directory (e.g., .claude/skills/ or .xtrm/skills/).
+2. If adding a new skill, ensure references and supporting files are included.
+3. Update .gitignore if necessary to track or untrack skill directories.
+4. Commit the changes with a message referencing the new or updated skill.
+
+## Evidence
+
+- Workflow detected from commit patterns
+- Frequency: ~2x per month
+- Files: .claude/skills/*/SKILL.md, .claude/skills/*/references/*.md, .xtrm/skills/active/*
+
+---
+id: terminalbeta-workflow-adjust-gitignore-and-untrack-files
+trigger: "when doing adjust gitignore and untrack files"
+confidence: 0.6
+domain: workflow
+source: repo-analysis
+source_repo: https://github.com/Jaggerxtrm/terminalbeta
+---
+
+# Terminalbeta Workflow Adjust Gitignore And Untrack Files
+
+## Action
+
+Follow the adjust-gitignore-and-untrack-files workflow:
+1. Edit .gitignore to add or remove patterns for files/directories.
+2. Untrack files from git history as needed.
+3. Commit the changes with a message referencing the .gitignore update and untracked files.
+
+## Evidence
+
+- Workflow detected from commit patterns
+- Frequency: ~2x per month
+- Files: .gitignore
+
+---
+id: terminalbeta-instinct-file-naming
+trigger: "When creating or renaming a file in the codebase"
+confidence: 0.8
+domain: code-style
+source: repo-analysis
+source_repo: Jaggerxtrm/terminalbeta
+---
+
+# Terminalbeta Instinct File Naming
+
+## Action
+
+Use camelCase for file names
+
+## Evidence
+
+- Pattern in namingConventions.files: camelCase
+
+---
+id: terminalbeta-instinct-function-naming
+trigger: "When defining a new function"
+confidence: 0.8
+domain: code-style
+source: repo-analysis
+source_repo: Jaggerxtrm/terminalbeta
+---
+
+# Terminalbeta Instinct Function Naming
+
+## Action
+
+Use camelCase for function names
+
+## Evidence
+
+- Pattern in namingConventions.functions: camelCase
+
+---
+id: terminalbeta-instinct-class-naming
+trigger: "When defining a new class"
+confidence: 0.8
+domain: code-style
+source: repo-analysis
+source_repo: Jaggerxtrm/terminalbeta
+---
+
+# Terminalbeta Instinct Class Naming
+
+## Action
+
+Use PascalCase for class names
+
+## Evidence
+
+- Pattern in namingConventions.classes: PascalCase
+
+---
+id: terminalbeta-instinct-constant-naming
+trigger: "When defining a constant"
+confidence: 0.8
+domain: code-style
+source: repo-analysis
+source_repo: Jaggerxtrm/terminalbeta
+---
+
+# Terminalbeta Instinct Constant Naming
+
+## Action
+
+Use SCREAMING_SNAKE_CASE for constant names
+
+## Evidence
+
+- Pattern in namingConventions.constants: SCREAMING_SNAKE_CASE
+
+---
+id: terminalbeta-instinct-import-style
+trigger: "When importing modules in TypeScript files"
+confidence: 0.8
+domain: code-style
+source: repo-analysis
+source_repo: Jaggerxtrm/terminalbeta
+---
+
+# Terminalbeta Instinct Import Style
+
+## Action
+
+Use relative import paths
+
+## Evidence
+
+- Pattern in importStyle: relative
+
+---
+id: terminalbeta-instinct-export-style
+trigger: "When exporting modules or functions"
+confidence: 0.8
+domain: code-style
+source: repo-analysis
+source_repo: Jaggerxtrm/terminalbeta
+---
+
+# Terminalbeta Instinct Export Style
+
+## Action
+
+Use named exports
+
+## Evidence
+
+- Pattern in exportStyle: named
+
+---
+id: terminalbeta-instinct-test-location
+trigger: "When adding or updating tests"
+confidence: 0.7
+domain: testing
+source: repo-analysis
+source_repo: Jaggerxtrm/terminalbeta
+---
+
+# Terminalbeta Instinct Test Location
+
+## Action
+
+Place test files in a separate directory from source files
+
+## Evidence
+
+- Pattern in architecture.folderStructure.testLocation: separate
+
+---
+id: terminalbeta-instinct-commit-format
+trigger: "When writing a commit message"
+confidence: 0.9
+domain: git
+source: repo-analysis
+source_repo: Jaggerxtrm/terminalbeta
+---
+
+# Terminalbeta Instinct Commit Format
+
+## Action
+
+Use conventional commit format with prefixes: fix, chore, feat
+
+## Evidence
+
+- Pattern in commits.prefixes: fix, chore, feat
+- Seen in commit: 'fix(docs): clarify mcpb install via Settings > Extensions drag-and-drop'
+
+---
+id: terminalbeta-instinct-commit-length
+trigger: "When composing a commit message"
+confidence: 0.7
+domain: git
+source: repo-analysis
+source_repo: Jaggerxtrm/terminalbeta
+---
+
+# Terminalbeta Instinct Commit Length
+
+## Action
+
+Keep the commit message concise, around 55 characters on average
+
+## Evidence
+
+- Pattern in commits.averageLength: 55
+
+---
+id: terminalbeta-instinct-update-user-docs
+trigger: "When someone needs to clarify or fix installation instructions or user guidance in documentation"
+confidence: 0.95
+domain: workflow
+source: repo-analysis
+source_repo: Jaggerxtrm/terminalbeta
+---
+
+# Terminalbeta Instinct Update User Docs
+
+## Action
+
+Edit docs/quickstart.md or README.md to update or clarify instructions and commit with a message referencing the clarification or fix
+
+## Evidence
+
+- Workflow: update-user-documentation
+- Seen in commit: 'fix(docs): correct mcpb install step in README (Settings > Extensions drag-and-drop)'
+
+---
+id: terminalbeta-instinct-add-or-update-skill
+trigger: "When someone wants to introduce a new skill or update the set of available skills for users"
+confidence: 0.9
+domain: workflow
+source: repo-analysis
+source_repo: Jaggerxtrm/terminalbeta
+---
+
+# Terminalbeta Instinct Add Or Update Skill
+
+## Action
+
+Create or update SKILL.md and reference files in .claude/skills/ or .xtrm/skills/, update .gitignore if needed, and commit with a message referencing the new or updated skill
+
+## Evidence
+
+- Workflow: add-or-update-skill
+- Seen in commit: 'feat: add mercury skills as real files in .claude/skills/'
+
+---
+id: terminalbeta-instinct-adjust-gitignore
+trigger: "When someone wants to exclude dev-only files or directories from the repository or adjust which files are tracked"
+confidence: 0.85
+domain: workflow
+source: repo-analysis
+source_repo: Jaggerxtrm/terminalbeta
+---
+
+# Terminalbeta Instinct Adjust Gitignore
+
+## Action
+
+Edit .gitignore to add or remove patterns, untrack files as needed, and commit with a message referencing the .gitignore update and untracked files
+
+## Evidence
+
+- Workflow: adjust-gitignore-and-untrack-files
+- Seen in commit: 'chore: exclude dev-tool dot dirs from git'
+
