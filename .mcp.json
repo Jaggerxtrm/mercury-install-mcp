@@ -1,0 +1,32 @@
+{
+  "mcpServers": {
+    "mercury-market-data": {
+      "type": "http",
+      "url": "https://mcp.mercuryintelligence.net/markets/mcp",
+      "headers": {
+        "X-API-Key": "${MERCURY_API_KEY}"
+      }
+    },
+    "mercury-darth-feedor": {
+      "type": "http",
+      "url": "https://mcp.mercuryintelligence.net/feeder/mcp",
+      "headers": {
+        "X-API-Key": "${MERCURY_API_KEY}"
+      }
+    },
+    "mercury-econ-data": {
+      "type": "http",
+      "url": "https://mcp.mercuryintelligence.net/econ/mcp",
+      "headers": {
+        "X-API-Key": "${MERCURY_API_KEY}"
+      }
+    },
+    "mercury-pubfinance": {
+      "type": "http",
+      "url": "https://mcp.mercuryintelligence.net/pubfinance/mcp",
+      "headers": {
+        "X-API-Key": "${MERCURY_API_KEY}"
+      }
+    }
+  }
+}

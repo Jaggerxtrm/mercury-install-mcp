@@ -6,13 +6,13 @@ node_modules/
 .dolt/
 *.db
 
+CLAUDE.md
+AGENTS.md
+
 # Dev tooling — not for users
 .beads/
-.claude/*
-!.claude/skills/
-!.claude/skills/**
+.claude/skills.bak*/
 .gitnexus/
-.mcp.json
 .pi/
 .serena/
 .specialists/
