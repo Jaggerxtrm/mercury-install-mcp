@@ -5,3 +5,13 @@ node_modules/
 # Dolt database files (added by bd init)
 .dolt/
 *.db
+
+# Dev tooling — not for users
+.beads/
+.claude/
+.gitnexus/
+.mcp.json
+.pi/
+.serena/
+.specialists/
+.xtrm/
