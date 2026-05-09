@@ -1,14 +1,16 @@
 name: Semgrep
 
 # SAST scanner — replaces CodeQL on private user-owned repos where GitHub
-# Advanced Security is unavailable. Free, runs entirely in CI, fails the PR
-# on any high/critical finding.
+# Advanced Security is unavailable. Free, runs entirely in CI.
+#
+# Diff-aware: on PRs, semgrep ci auto-compares HEAD against the base branch
+# and only flags NEW findings. We do NOT trigger on push to main because
+# `semgrep ci` has no baseline there and would re-flag pre-existing debt
+# every commit. The weekly schedule covers the full-scan use case.
 
 on:
-  push:
-    branches: [main]
   pull_request:
-    branches: [main]
+    branches: [main, master]
   schedule:
     - cron: "0 6 * * 1"  # Monday 06:00 UTC weekly
 
@@ -24,12 +26,12 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0  # full history for baseline diff
 
       - name: Semgrep CI
         run: semgrep ci
         env:
-          # No SEMGREP_APP_TOKEN — runs in OSS mode using rule packs from semgrep registry.
-          # auto picks: r/security-audit, r/secrets, r/python, r/dockerfile, etc., based on detected stack.
           SEMGREP_RULES: >-
             p/default
             p/security-audit
