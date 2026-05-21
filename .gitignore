@@ -12,8 +12,15 @@ AGENTS.md
 # Dev tooling — not for users
 .beads/
 .claude/skills.bak*/
+.claude/skills.backup-*/
 .gitnexus/
 .pi/
 .serena/
 .specialists/
 .xtrm/
+
+# Beads / Dolt files (added by bd init)
+.beads-credential-key
+
+# bv (beads viewer) local config and caches
+.bv/
